@@ -1,0 +1,1039 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ERFCDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="core_appbroadcastmsg">
+          <Key>
+            <PropertyRef Name="msgId" />
+          </Key>
+          <Property Name="msgId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="subject" Type="varchar" MaxLength="150" />
+          <Property Name="body" Type="text" />
+          <Property Name="creaby" Type="varchar" MaxLength="20" />
+          <Property Name="creadte" Type="datetime" />
+          <Property Name="daylive" Type="int" />
+          <Property Name="isshow" Type="bit" />
+          <Property Name="msgtype" Type="int" />
+        </EntityType>
+        <EntityType Name="core_appedi">
+          <Key>
+            <PropertyRef Name="ediId" />
+          </Key>
+          <Property Name="ediId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="caption" Type="varchar" MaxLength="30" />
+          <Property Name="description" Type="varchar" MaxLength="100" />
+          <Property Name="source" Type="varchar" MaxLength="150" />
+          <Property Name="destination" Type="varchar" MaxLength="150" />
+          <Property Name="extension" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="core_appmenu">
+          <Key>
+            <PropertyRef Name="menuId" />
+            <PropertyRef Name="sysId" />
+          </Key>
+          <Property Name="menuId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sysId" Type="int" Nullable="false" />
+          <Property Name="menucode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="menuname" Type="varchar" MaxLength="100" />
+          <Property Name="prtmenucode" Type="varchar" MaxLength="50" />
+          <Property Name="menuorder" Type="int" />
+          <Property Name="isactive" Type="bit" />
+          <Property Name="viewtype" Type="varchar" MaxLength="20" />
+          <Property Name="istransaction" Type="bit" />
+          <Property Name="menutype" Type="varchar" MaxLength="20" />
+          <Property Name="accesslevel" Type="int" />
+          <Property Name="defaultemployee" Type="bit" />
+          <Property Name="defaultcustomer" Type="bit" />
+          <Property Name="defaultsupplier" Type="bit" />
+          <Property Name="formobile" Type="bit" />
+          <Property Name="forweb" Type="bit" />
+          <Property Name="classicon" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="core_appmenuuser">
+          <Key>
+            <PropertyRef Name="menuId" />
+            <PropertyRef Name="userId" />
+          </Key>
+          <Property Name="menuId" Type="int" Nullable="false" />
+          <Property Name="userId" Type="int" Nullable="false" />
+          <Property Name="canadd" Type="bit" />
+          <Property Name="canedit" Type="bit" />
+          <Property Name="candelete" Type="bit" />
+          <Property Name="canview" Type="bit" />
+          <Property Name="canopen" Type="bit" />
+        </EntityType>
+        <EntityType Name="core_appnotification">
+          <Key>
+            <PropertyRef Name="notifyId" />
+          </Key>
+          <Property Name="notifyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="appcode" Type="varchar" MaxLength="20" />
+          <Property Name="sender" Type="int" />
+          <Property Name="recipient" Type="int" />
+          <Property Name="subject" Type="varchar" MaxLength="100" />
+          <Property Name="body" Type="varchar" MaxLength="500" />
+          <Property Name="isread" Type="bit" Nullable="false" />
+          <Property Name="createdate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="core_appsettings">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="appID" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="appID" Type="int" Nullable="false" />
+          <Property Name="SittingName" Type="varchar" MaxLength="50" />
+          <Property Name="SettingDescription" Type="varchar" MaxLength="200" />
+          <Property Name="SettingValue" Type="varchar" MaxLength="50" />
+          <Property Name="create_date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="core_appsystem">
+          <Key>
+            <PropertyRef Name="sysId" />
+          </Key>
+          <Property Name="sysId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="syscode" Type="varchar" MaxLength="10" />
+          <Property Name="sysname" Type="varchar" MaxLength="100" />
+          <Property Name="sysdescription" Type="varchar" MaxLength="250" />
+          <Property Name="isactive" Type="bit" />
+          <Property Name="about" Type="text" />
+          <Property Name="showwebapps" Type="bit" />
+          <Property Name="showusermenu" Type="bit" />
+          <Property Name="ismaintenance" Type="bit" />
+          <Property Name="emailsupport" Type="varchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="core_appsystemuser">
+          <Key>
+            <PropertyRef Name="sysId" />
+            <PropertyRef Name="userId" />
+          </Key>
+          <Property Name="sysId" Type="int" Nullable="false" />
+          <Property Name="userId" Type="int" Nullable="false" />
+          <Property Name="createdby" Type="varchar" MaxLength="20" />
+          <Property Name="createddate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="core_appversion">
+          <Key>
+            <PropertyRef Name="versionId" />
+          </Key>
+          <Property Name="versionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="systemId" Type="int" />
+          <Property Name="verno" Type="varchar" MaxLength="15" />
+          <Property Name="verreleasenote" Type="text" />
+          <Property Name="create_by" Type="varchar" MaxLength="50" />
+          <Property Name="create_date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="core_attachments">
+          <Key>
+            <PropertyRef Name="attachmentId" />
+          </Key>
+          <Property Name="attachmentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="transactionId" Type="int" Nullable="false" />
+          <Property Name="attachtype" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="filename" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="newfilename" Type="varchar" MaxLength="50" />
+          <Property Name="filetype" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="uploadtype" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="created_by" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="create_date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ERFCDB.dbo.core_audit_trail' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="core_audit_trail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="module" Type="varchar" MaxLength="50" />
+          <Property Name="description" Type="varchar(max)" />
+          <Property Name="userid" Type="varchar" MaxLength="50" />
+          <Property Name="createdte" Type="datetime" />
+          <Property Name="workstation" Type="varchar" MaxLength="20" />
+          <Property Name="appname" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="core_branchmst">
+          <Key>
+            <PropertyRef Name="brancode" />
+          </Key>
+          <Property Name="brancode" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="branname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="address" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="status" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="districtcode" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="branchheadname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="branchheadcontact" Type="varchar" MaxLength="13" Nullable="false" />
+          <Property Name="branalias" Type="varchar" MaxLength="20" />
+          <Property Name="mapreference" Type="varchar(max)" />
+          <Property Name="branchheadid" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="branchheademail" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="latitude" Type="varchar" MaxLength="30" />
+          <Property Name="longitude" Type="varchar" MaxLength="30" />
+          <Property Name="sbu" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="withpism" Type="tinyint" Nullable="false" />
+          <Property Name="withwfmsdb" Type="bit" Nullable="false" />
+          <Property Name="wfmsdbId" Type="int" />
+          <Property Name="reportflag" Type="tinyint" Nullable="false" />
+          <Property Name="hrisbranchcode" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="created_by" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="create_date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="core_system">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="debugpassword" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="pismutilizationmonth" Type="int" Nullable="false" />
+          <Property Name="pismutilizationyear" Type="int" Nullable="false" />
+          <Property Name="mobadminpincode" Type="varchar" MaxLength="6" Nullable="false" />
+        </EntityType>
+        <EntityType Name="core_users">
+          <Key>
+            <PropertyRef Name="userId" />
+          </Key>
+          <Property Name="userId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="userrole" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="userpass" Type="varchar" MaxLength="50" />
+          <Property Name="lastname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="middlename" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="firstname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="nickname" Type="varchar" MaxLength="20" />
+          <Property Name="usertype" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="emplId" Type="varchar" MaxLength="10" />
+          <Property Name="emailaddress" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="mobileno" Type="varchar" MaxLength="50" />
+          <Property Name="status" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="hashcode" Type="varchar" MaxLength="100" />
+          <Property Name="created_by" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="create_date" Type="datetime" Nullable="false" />
+          <Property Name="canaccessaquila" Type="bit" Nullable="false" />
+          <Property Name="ismailvalid" Type="bit" Nullable="false" />
+          <Property Name="isphonevalid" Type="bit" Nullable="false" />
+          <Property Name="isverify" Type="bit" />
+        </EntityType>
+        <EntityType Name="core_userswarehouse">
+          <Key>
+            <PropertyRef Name="brancode" />
+            <PropertyRef Name="userId" />
+            <PropertyRef Name="sysId" />
+          </Key>
+          <Property Name="brancode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="userId" Type="int" Nullable="false" />
+          <Property Name="sysId" Type="int" Nullable="false" />
+          <Property Name="isdefault" Type="bit" Nullable="false" />
+          <Property Name="created_by" Type="varchar" MaxLength="100" />
+          <Property Name="create_date" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ERFCDB.dbo.core_vAdminMenu' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="core_vAdminMenu">
+          <Key>
+            <PropertyRef Name="parentId" />
+            <PropertyRef Name="sysId" />
+            <PropertyRef Name="menucode" />
+          </Key>
+          <Property Name="parentId" Type="int" Nullable="false" />
+          <Property Name="parentName" Type="varchar" MaxLength="100" />
+          <Property Name="parentmenuorder" Type="int" />
+          <Property Name="parenticon" Type="varchar" MaxLength="50" />
+          <Property Name="userId" Type="int" />
+          <Property Name="sysId" Type="int" Nullable="false" />
+          <Property Name="menucode" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ERFCDB.dbo.core_vParentMenu' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="core_vParentMenu">
+          <Key>
+            <PropertyRef Name="parentId" />
+            <PropertyRef Name="sysId" />
+            <PropertyRef Name="menucode" />
+          </Key>
+          <Property Name="parentId" Type="int" Nullable="false" />
+          <Property Name="parentName" Type="varchar" MaxLength="100" />
+          <Property Name="parentmenuorder" Type="int" />
+          <Property Name="parenticon" Type="varchar" MaxLength="50" />
+          <Property Name="userId" Type="int" />
+          <Property Name="sysId" Type="int" Nullable="false" />
+          <Property Name="menucode" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_core_appmenu_core_appsystem">
+          <End Role="core_appsystem" Type="Self.core_appsystem" Multiplicity="1" />
+          <End Role="core_appmenu" Type="Self.core_appmenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="core_appsystem">
+              <PropertyRef Name="sysId" />
+            </Principal>
+            <Dependent Role="core_appmenu">
+              <PropertyRef Name="sysId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_core_appmenuuser_core_users">
+          <End Role="core_users" Type="Self.core_users" Multiplicity="1" />
+          <End Role="core_appmenuuser" Type="Self.core_appmenuuser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="core_users">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="core_appmenuuser">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_core_appsystemuser_core_users">
+          <End Role="core_users" Type="Self.core_users" Multiplicity="1" />
+          <End Role="core_appsystemuser" Type="Self.core_appsystemuser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="core_users">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="core_appsystemuser">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_core_userswarehouse_core_appsystem">
+          <End Role="core_appsystem" Type="Self.core_appsystem" Multiplicity="1" />
+          <End Role="core_userswarehouse" Type="Self.core_userswarehouse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="core_appsystem">
+              <PropertyRef Name="sysId" />
+            </Principal>
+            <Dependent Role="core_userswarehouse">
+              <PropertyRef Name="sysId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_core_userswarehouse_core_users">
+          <End Role="core_users" Type="Self.core_users" Multiplicity="1" />
+          <End Role="core_userswarehouse" Type="Self.core_userswarehouse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="core_users">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="core_userswarehouse">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ERFCDBModelStoreContainer">
+          <EntitySet Name="core_appbroadcastmsg" EntityType="Self.core_appbroadcastmsg" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="core_appedi" EntityType="Self.core_appedi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="core_appmenu" EntityType="Self.core_appmenu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="core_appmenuuser" EntityType="Self.core_appmenuuser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="core_appnotification" EntityType="Self.core_appnotification" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="core_appsettings" EntityType="Self.core_appsettings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="core_appsystem" EntityType="Self.core_appsystem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="core_appsystemuser" EntityType="Self.core_appsystemuser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="core_appversion" EntityType="Self.core_appversion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="core_attachments" EntityType="Self.core_attachments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="core_branchmst" EntityType="Self.core_branchmst" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="core_system" EntityType="Self.core_system" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="core_users" EntityType="Self.core_users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="core_userswarehouse" EntityType="Self.core_userswarehouse" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="core_audit_trail" EntityType="Self.core_audit_trail" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [core_audit_trail].[Id] AS [Id], 
+    [core_audit_trail].[module] AS [module], 
+    [core_audit_trail].[description] AS [description], 
+    [core_audit_trail].[userid] AS [userid], 
+    [core_audit_trail].[createdte] AS [createdte], 
+    [core_audit_trail].[workstation] AS [workstation], 
+    [core_audit_trail].[appname] AS [appname]
+    FROM [dbo].[core_audit_trail] AS [core_audit_trail]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="core_vAdminMenu" EntityType="Self.core_vAdminMenu" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [core_vAdminMenu].[parentId] AS [parentId], 
+    [core_vAdminMenu].[parentName] AS [parentName], 
+    [core_vAdminMenu].[parentmenuorder] AS [parentmenuorder], 
+    [core_vAdminMenu].[parenticon] AS [parenticon], 
+    [core_vAdminMenu].[userId] AS [userId], 
+    [core_vAdminMenu].[sysId] AS [sysId], 
+    [core_vAdminMenu].[menucode] AS [menucode]
+    FROM [dbo].[core_vAdminMenu] AS [core_vAdminMenu]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="core_vParentMenu" EntityType="Self.core_vParentMenu" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [core_vParentMenu].[parentId] AS [parentId], 
+    [core_vParentMenu].[parentName] AS [parentName], 
+    [core_vParentMenu].[parentmenuorder] AS [parentmenuorder], 
+    [core_vParentMenu].[parenticon] AS [parenticon], 
+    [core_vParentMenu].[userId] AS [userId], 
+    [core_vParentMenu].[sysId] AS [sysId], 
+    [core_vParentMenu].[menucode] AS [menucode]
+    FROM [dbo].[core_vParentMenu] AS [core_vParentMenu]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_core_appmenu_core_appsystem" Association="Self.FK_core_appmenu_core_appsystem">
+            <End Role="core_appsystem" EntitySet="core_appsystem" />
+            <End Role="core_appmenu" EntitySet="core_appmenu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_core_appmenuuser_core_users" Association="Self.FK_core_appmenuuser_core_users">
+            <End Role="core_users" EntitySet="core_users" />
+            <End Role="core_appmenuuser" EntitySet="core_appmenuuser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_core_appsystemuser_core_users" Association="Self.FK_core_appsystemuser_core_users">
+            <End Role="core_users" EntitySet="core_users" />
+            <End Role="core_appsystemuser" EntitySet="core_appsystemuser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_core_userswarehouse_core_appsystem" Association="Self.FK_core_userswarehouse_core_appsystem">
+            <End Role="core_appsystem" EntitySet="core_appsystem" />
+            <End Role="core_userswarehouse" EntitySet="core_userswarehouse" />
+          </AssociationSet>
+          <AssociationSet Name="FK_core_userswarehouse_core_users" Association="Self.FK_core_userswarehouse_core_users">
+            <End Role="core_users" EntitySet="core_users" />
+            <End Role="core_userswarehouse" EntitySet="core_userswarehouse" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ERFCDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="core_appbroadcastmsg">
+          <Key>
+            <PropertyRef Name="msgId" />
+          </Key>
+          <Property Name="msgId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="subject" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="body" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="creaby" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="creadte" Type="DateTime" Precision="3" />
+          <Property Name="daylive" Type="Int32" />
+          <Property Name="isshow" Type="Boolean" />
+          <Property Name="msgtype" Type="Int32" />
+        </EntityType>
+        <EntityType Name="core_appedi">
+          <Key>
+            <PropertyRef Name="ediId" />
+          </Key>
+          <Property Name="ediId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="caption" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="source" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="destination" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="extension" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="core_appmenu">
+          <Key>
+            <PropertyRef Name="menuId" />
+            <PropertyRef Name="sysId" />
+          </Key>
+          <Property Name="menuId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sysId" Type="Int32" Nullable="false" />
+          <Property Name="menucode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="menuname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="prtmenucode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="menuorder" Type="Int32" />
+          <Property Name="isactive" Type="Boolean" />
+          <Property Name="viewtype" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="istransaction" Type="Boolean" />
+          <Property Name="menutype" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="accesslevel" Type="Int32" />
+          <Property Name="defaultemployee" Type="Boolean" />
+          <Property Name="defaultcustomer" Type="Boolean" />
+          <Property Name="defaultsupplier" Type="Boolean" />
+          <Property Name="formobile" Type="Boolean" />
+          <Property Name="forweb" Type="Boolean" />
+          <Property Name="classicon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="core_appsystem" Relationship="Self.FK_core_appmenu_core_appsystem" FromRole="core_appmenu" ToRole="core_appsystem" />
+        </EntityType>
+        <EntityType Name="core_appmenuuser">
+          <Key>
+            <PropertyRef Name="menuId" />
+            <PropertyRef Name="userId" />
+          </Key>
+          <Property Name="menuId" Type="Int32" Nullable="false" />
+          <Property Name="userId" Type="Int32" Nullable="false" />
+          <Property Name="canadd" Type="Boolean" />
+          <Property Name="canedit" Type="Boolean" />
+          <Property Name="candelete" Type="Boolean" />
+          <Property Name="canview" Type="Boolean" />
+          <Property Name="canopen" Type="Boolean" />
+          <NavigationProperty Name="core_users" Relationship="Self.FK_core_appmenuuser_core_users" FromRole="core_appmenuuser" ToRole="core_users" />
+        </EntityType>
+        <EntityType Name="core_appnotification">
+          <Key>
+            <PropertyRef Name="notifyId" />
+          </Key>
+          <Property Name="notifyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="appcode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="sender" Type="Int32" />
+          <Property Name="recipient" Type="Int32" />
+          <Property Name="subject" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="body" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="isread" Type="Boolean" Nullable="false" />
+          <Property Name="createdate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="core_appsettings">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="appID" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="appID" Type="Int32" Nullable="false" />
+          <Property Name="SittingName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SettingDescription" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="SettingValue" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="create_date" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="core_appsystem">
+          <Key>
+            <PropertyRef Name="sysId" />
+          </Key>
+          <Property Name="sysId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="syscode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="sysname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="sysdescription" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="isactive" Type="Boolean" />
+          <Property Name="about" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="showwebapps" Type="Boolean" />
+          <Property Name="showusermenu" Type="Boolean" />
+          <Property Name="ismaintenance" Type="Boolean" />
+          <Property Name="emailsupport" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="core_appmenu" Relationship="Self.FK_core_appmenu_core_appsystem" FromRole="core_appsystem" ToRole="core_appmenu" />
+          <NavigationProperty Name="core_userswarehouse" Relationship="Self.FK_core_userswarehouse_core_appsystem" FromRole="core_appsystem" ToRole="core_userswarehouse" />
+        </EntityType>
+        <EntityType Name="core_appsystemuser">
+          <Key>
+            <PropertyRef Name="sysId" />
+            <PropertyRef Name="userId" />
+          </Key>
+          <Property Name="sysId" Type="Int32" Nullable="false" />
+          <Property Name="userId" Type="Int32" Nullable="false" />
+          <Property Name="createdby" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="createddate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="core_users" Relationship="Self.FK_core_appsystemuser_core_users" FromRole="core_appsystemuser" ToRole="core_users" />
+        </EntityType>
+        <EntityType Name="core_appversion">
+          <Key>
+            <PropertyRef Name="versionId" />
+          </Key>
+          <Property Name="versionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="systemId" Type="Int32" />
+          <Property Name="verno" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="verreleasenote" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="create_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="create_date" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="core_attachments">
+          <Key>
+            <PropertyRef Name="attachmentId" />
+          </Key>
+          <Property Name="attachmentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="transactionId" Type="Int32" Nullable="false" />
+          <Property Name="attachtype" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="filename" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="newfilename" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="filetype" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="uploadtype" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="created_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_date" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="core_branchmst">
+          <Key>
+            <PropertyRef Name="brancode" />
+          </Key>
+          <Property Name="brancode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="branname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="districtcode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="branchheadname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="branchheadcontact" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="branalias" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="mapreference" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="branchheadid" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="branchheademail" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="latitude" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="longitude" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="sbu" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="withpism" Type="Byte" Nullable="false" />
+          <Property Name="withwfmsdb" Type="Boolean" Nullable="false" />
+          <Property Name="wfmsdbId" Type="Int32" />
+          <Property Name="reportflag" Type="Byte" Nullable="false" />
+          <Property Name="hrisbranchcode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="created_by" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_date" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="core_users">
+          <Key>
+            <PropertyRef Name="userId" />
+          </Key>
+          <Property Name="userId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="userrole" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="userpass" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="middlename" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nickname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="usertype" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="emplId" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="emailaddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="mobileno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="hashcode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="created_by" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="canaccessaquila" Type="Boolean" Nullable="false" />
+          <Property Name="ismailvalid" Type="Boolean" Nullable="false" />
+          <Property Name="isphonevalid" Type="Boolean" Nullable="false" />
+          <Property Name="isverify" Type="Boolean" />
+          <NavigationProperty Name="core_appmenuuser" Relationship="Self.FK_core_appmenuuser_core_users" FromRole="core_users" ToRole="core_appmenuuser" />
+          <NavigationProperty Name="core_appsystemuser" Relationship="Self.FK_core_appsystemuser_core_users" FromRole="core_users" ToRole="core_appsystemuser" />
+          <NavigationProperty Name="core_userswarehouse" Relationship="Self.FK_core_userswarehouse_core_users" FromRole="core_users" ToRole="core_userswarehouse" />
+        </EntityType>
+        <EntityType Name="core_userswarehouse">
+          <Key>
+            <PropertyRef Name="brancode" />
+            <PropertyRef Name="userId" />
+            <PropertyRef Name="sysId" />
+          </Key>
+          <Property Name="brancode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="userId" Type="Int32" Nullable="false" />
+          <Property Name="sysId" Type="Int32" Nullable="false" />
+          <Property Name="isdefault" Type="Boolean" Nullable="false" />
+          <Property Name="created_by" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="create_date" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="core_appsystem" Relationship="Self.FK_core_userswarehouse_core_appsystem" FromRole="core_userswarehouse" ToRole="core_appsystem" />
+          <NavigationProperty Name="core_users" Relationship="Self.FK_core_userswarehouse_core_users" FromRole="core_userswarehouse" ToRole="core_users" />
+        </EntityType>
+        <EntityType Name="core_audit_trail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="module" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="userid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="createdte" Type="DateTime" Precision="3" />
+          <Property Name="workstation" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="appname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="core_vAdminMenu">
+          <Key>
+            <PropertyRef Name="parentId" />
+            <PropertyRef Name="sysId" />
+            <PropertyRef Name="menucode" />
+          </Key>
+          <Property Name="parentId" Type="Int32" Nullable="false" />
+          <Property Name="parentName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="parentmenuorder" Type="Int32" />
+          <Property Name="parenticon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="userId" Type="Int32" />
+          <Property Name="sysId" Type="Int32" Nullable="false" />
+          <Property Name="menucode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="core_vParentMenu">
+          <Key>
+            <PropertyRef Name="parentId" />
+            <PropertyRef Name="sysId" />
+            <PropertyRef Name="menucode" />
+          </Key>
+          <Property Name="parentId" Type="Int32" Nullable="false" />
+          <Property Name="parentName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="parentmenuorder" Type="Int32" />
+          <Property Name="parenticon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="userId" Type="Int32" />
+          <Property Name="sysId" Type="Int32" Nullable="false" />
+          <Property Name="menucode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_core_appmenu_core_appsystem">
+          <End Role="core_appsystem" Type="Self.core_appsystem" Multiplicity="1" />
+          <End Role="core_appmenu" Type="Self.core_appmenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="core_appsystem">
+              <PropertyRef Name="sysId" />
+            </Principal>
+            <Dependent Role="core_appmenu">
+              <PropertyRef Name="sysId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_core_appmenuuser_core_users">
+          <End Role="core_users" Type="Self.core_users" Multiplicity="1" />
+          <End Role="core_appmenuuser" Type="Self.core_appmenuuser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="core_users">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="core_appmenuuser">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_core_userswarehouse_core_appsystem">
+          <End Role="core_appsystem" Type="Self.core_appsystem" Multiplicity="1" />
+          <End Role="core_userswarehouse" Type="Self.core_userswarehouse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="core_appsystem">
+              <PropertyRef Name="sysId" />
+            </Principal>
+            <Dependent Role="core_userswarehouse">
+              <PropertyRef Name="sysId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_core_appsystemuser_core_users">
+          <End Role="core_users" Type="Self.core_users" Multiplicity="1" />
+          <End Role="core_appsystemuser" Type="Self.core_appsystemuser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="core_users">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="core_appsystemuser">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_core_userswarehouse_core_users">
+          <End Role="core_users" Type="Self.core_users" Multiplicity="1" />
+          <End Role="core_userswarehouse" Type="Self.core_userswarehouse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="core_users">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="core_userswarehouse">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ERFCDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="core_appbroadcastmsg" EntityType="Self.core_appbroadcastmsg" />
+          <EntitySet Name="core_appedi" EntityType="Self.core_appedi" />
+          <EntitySet Name="core_appmenu" EntityType="Self.core_appmenu" />
+          <EntitySet Name="core_appmenuuser" EntityType="Self.core_appmenuuser" />
+          <EntitySet Name="core_appnotification" EntityType="Self.core_appnotification" />
+          <EntitySet Name="core_appsettings" EntityType="Self.core_appsettings" />
+          <EntitySet Name="core_appsystem" EntityType="Self.core_appsystem" />
+          <EntitySet Name="core_appsystemuser" EntityType="Self.core_appsystemuser" />
+          <EntitySet Name="core_appversion" EntityType="Self.core_appversion" />
+          <EntitySet Name="core_attachments" EntityType="Self.core_attachments" />
+          <EntitySet Name="core_branchmst" EntityType="Self.core_branchmst" />
+          <EntitySet Name="core_users" EntityType="Self.core_users" />
+          <EntitySet Name="core_userswarehouse" EntityType="Self.core_userswarehouse" />
+          <EntitySet Name="core_audit_trail" EntityType="Self.core_audit_trail" />
+          <EntitySet Name="core_vAdminMenu" EntityType="Self.core_vAdminMenu" />
+          <EntitySet Name="core_vParentMenu" EntityType="Self.core_vParentMenu" />
+          <AssociationSet Name="FK_core_appmenu_core_appsystem" Association="Self.FK_core_appmenu_core_appsystem">
+            <End Role="core_appsystem" EntitySet="core_appsystem" />
+            <End Role="core_appmenu" EntitySet="core_appmenu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_core_appmenuuser_core_users" Association="Self.FK_core_appmenuuser_core_users">
+            <End Role="core_users" EntitySet="core_users" />
+            <End Role="core_appmenuuser" EntitySet="core_appmenuuser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_core_userswarehouse_core_appsystem" Association="Self.FK_core_userswarehouse_core_appsystem">
+            <End Role="core_appsystem" EntitySet="core_appsystem" />
+            <End Role="core_userswarehouse" EntitySet="core_userswarehouse" />
+          </AssociationSet>
+          <AssociationSet Name="FK_core_appsystemuser_core_users" Association="Self.FK_core_appsystemuser_core_users">
+            <End Role="core_users" EntitySet="core_users" />
+            <End Role="core_appsystemuser" EntitySet="core_appsystemuser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_core_userswarehouse_core_users" Association="Self.FK_core_userswarehouse_core_users">
+            <End Role="core_users" EntitySet="core_users" />
+            <End Role="core_userswarehouse" EntitySet="core_userswarehouse" />
+          </AssociationSet>
+          <EntitySet Name="core_system" EntityType="ERFCDBModel.core_system" />
+        </EntityContainer>
+        <EntityType Name="core_system">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="debugpassword" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="pismutilizationmonth" Type="Int32" Nullable="false" />
+          <Property Name="pismutilizationyear" Type="Int32" Nullable="false" />
+          <Property Name="mobadminpincode" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ERFCDBModelStoreContainer" CdmEntityContainer="ERFCDBEntities">
+          <EntitySetMapping Name="core_appbroadcastmsg">
+            <EntityTypeMapping TypeName="ERFCDBModel.core_appbroadcastmsg">
+              <MappingFragment StoreEntitySet="core_appbroadcastmsg">
+                <ScalarProperty Name="msgId" ColumnName="msgId" />
+                <ScalarProperty Name="subject" ColumnName="subject" />
+                <ScalarProperty Name="body" ColumnName="body" />
+                <ScalarProperty Name="creaby" ColumnName="creaby" />
+                <ScalarProperty Name="creadte" ColumnName="creadte" />
+                <ScalarProperty Name="daylive" ColumnName="daylive" />
+                <ScalarProperty Name="isshow" ColumnName="isshow" />
+                <ScalarProperty Name="msgtype" ColumnName="msgtype" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="core_appedi">
+            <EntityTypeMapping TypeName="ERFCDBModel.core_appedi">
+              <MappingFragment StoreEntitySet="core_appedi">
+                <ScalarProperty Name="ediId" ColumnName="ediId" />
+                <ScalarProperty Name="caption" ColumnName="caption" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="source" ColumnName="source" />
+                <ScalarProperty Name="destination" ColumnName="destination" />
+                <ScalarProperty Name="extension" ColumnName="extension" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="core_appmenu">
+            <EntityTypeMapping TypeName="ERFCDBModel.core_appmenu">
+              <MappingFragment StoreEntitySet="core_appmenu">
+                <ScalarProperty Name="menuId" ColumnName="menuId" />
+                <ScalarProperty Name="sysId" ColumnName="sysId" />
+                <ScalarProperty Name="menucode" ColumnName="menucode" />
+                <ScalarProperty Name="menuname" ColumnName="menuname" />
+                <ScalarProperty Name="prtmenucode" ColumnName="prtmenucode" />
+                <ScalarProperty Name="menuorder" ColumnName="menuorder" />
+                <ScalarProperty Name="isactive" ColumnName="isactive" />
+                <ScalarProperty Name="viewtype" ColumnName="viewtype" />
+                <ScalarProperty Name="istransaction" ColumnName="istransaction" />
+                <ScalarProperty Name="menutype" ColumnName="menutype" />
+                <ScalarProperty Name="accesslevel" ColumnName="accesslevel" />
+                <ScalarProperty Name="defaultemployee" ColumnName="defaultemployee" />
+                <ScalarProperty Name="defaultcustomer" ColumnName="defaultcustomer" />
+                <ScalarProperty Name="defaultsupplier" ColumnName="defaultsupplier" />
+                <ScalarProperty Name="formobile" ColumnName="formobile" />
+                <ScalarProperty Name="forweb" ColumnName="forweb" />
+                <ScalarProperty Name="classicon" ColumnName="classicon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="core_appmenuuser">
+            <EntityTypeMapping TypeName="ERFCDBModel.core_appmenuuser">
+              <MappingFragment StoreEntitySet="core_appmenuuser">
+                <ScalarProperty Name="menuId" ColumnName="menuId" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="canadd" ColumnName="canadd" />
+                <ScalarProperty Name="canedit" ColumnName="canedit" />
+                <ScalarProperty Name="candelete" ColumnName="candelete" />
+                <ScalarProperty Name="canview" ColumnName="canview" />
+                <ScalarProperty Name="canopen" ColumnName="canopen" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="core_appnotification">
+            <EntityTypeMapping TypeName="ERFCDBModel.core_appnotification">
+              <MappingFragment StoreEntitySet="core_appnotification">
+                <ScalarProperty Name="notifyId" ColumnName="notifyId" />
+                <ScalarProperty Name="appcode" ColumnName="appcode" />
+                <ScalarProperty Name="sender" ColumnName="sender" />
+                <ScalarProperty Name="recipient" ColumnName="recipient" />
+                <ScalarProperty Name="subject" ColumnName="subject" />
+                <ScalarProperty Name="body" ColumnName="body" />
+                <ScalarProperty Name="isread" ColumnName="isread" />
+                <ScalarProperty Name="createdate" ColumnName="createdate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="core_appsettings">
+            <EntityTypeMapping TypeName="ERFCDBModel.core_appsettings">
+              <MappingFragment StoreEntitySet="core_appsettings">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="appID" ColumnName="appID" />
+                <ScalarProperty Name="SittingName" ColumnName="SittingName" />
+                <ScalarProperty Name="SettingDescription" ColumnName="SettingDescription" />
+                <ScalarProperty Name="SettingValue" ColumnName="SettingValue" />
+                <ScalarProperty Name="create_date" ColumnName="create_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="core_appsystem">
+            <EntityTypeMapping TypeName="ERFCDBModel.core_appsystem">
+              <MappingFragment StoreEntitySet="core_appsystem">
+                <ScalarProperty Name="sysId" ColumnName="sysId" />
+                <ScalarProperty Name="syscode" ColumnName="syscode" />
+                <ScalarProperty Name="sysname" ColumnName="sysname" />
+                <ScalarProperty Name="sysdescription" ColumnName="sysdescription" />
+                <ScalarProperty Name="isactive" ColumnName="isactive" />
+                <ScalarProperty Name="about" ColumnName="about" />
+                <ScalarProperty Name="showwebapps" ColumnName="showwebapps" />
+                <ScalarProperty Name="showusermenu" ColumnName="showusermenu" />
+                <ScalarProperty Name="ismaintenance" ColumnName="ismaintenance" />
+                <ScalarProperty Name="emailsupport" ColumnName="emailsupport" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="core_appsystemuser">
+            <EntityTypeMapping TypeName="ERFCDBModel.core_appsystemuser">
+              <MappingFragment StoreEntitySet="core_appsystemuser">
+                <ScalarProperty Name="sysId" ColumnName="sysId" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="createdby" ColumnName="createdby" />
+                <ScalarProperty Name="createddate" ColumnName="createddate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="core_appversion">
+            <EntityTypeMapping TypeName="ERFCDBModel.core_appversion">
+              <MappingFragment StoreEntitySet="core_appversion">
+                <ScalarProperty Name="versionId" ColumnName="versionId" />
+                <ScalarProperty Name="systemId" ColumnName="systemId" />
+                <ScalarProperty Name="verno" ColumnName="verno" />
+                <ScalarProperty Name="verreleasenote" ColumnName="verreleasenote" />
+                <ScalarProperty Name="create_by" ColumnName="create_by" />
+                <ScalarProperty Name="create_date" ColumnName="create_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="core_attachments">
+            <EntityTypeMapping TypeName="ERFCDBModel.core_attachments">
+              <MappingFragment StoreEntitySet="core_attachments">
+                <ScalarProperty Name="attachmentId" ColumnName="attachmentId" />
+                <ScalarProperty Name="transactionId" ColumnName="transactionId" />
+                <ScalarProperty Name="attachtype" ColumnName="attachtype" />
+                <ScalarProperty Name="filename" ColumnName="filename" />
+                <ScalarProperty Name="newfilename" ColumnName="newfilename" />
+                <ScalarProperty Name="filetype" ColumnName="filetype" />
+                <ScalarProperty Name="uploadtype" ColumnName="uploadtype" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="create_date" ColumnName="create_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="core_branchmst">
+            <EntityTypeMapping TypeName="ERFCDBModel.core_branchmst">
+              <MappingFragment StoreEntitySet="core_branchmst">
+                <ScalarProperty Name="brancode" ColumnName="brancode" />
+                <ScalarProperty Name="branname" ColumnName="branname" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="districtcode" ColumnName="districtcode" />
+                <ScalarProperty Name="branchheadname" ColumnName="branchheadname" />
+                <ScalarProperty Name="branchheadcontact" ColumnName="branchheadcontact" />
+                <ScalarProperty Name="branalias" ColumnName="branalias" />
+                <ScalarProperty Name="mapreference" ColumnName="mapreference" />
+                <ScalarProperty Name="branchheadid" ColumnName="branchheadid" />
+                <ScalarProperty Name="branchheademail" ColumnName="branchheademail" />
+                <ScalarProperty Name="latitude" ColumnName="latitude" />
+                <ScalarProperty Name="longitude" ColumnName="longitude" />
+                <ScalarProperty Name="sbu" ColumnName="sbu" />
+                <ScalarProperty Name="withpism" ColumnName="withpism" />
+                <ScalarProperty Name="withwfmsdb" ColumnName="withwfmsdb" />
+                <ScalarProperty Name="wfmsdbId" ColumnName="wfmsdbId" />
+                <ScalarProperty Name="reportflag" ColumnName="reportflag" />
+                <ScalarProperty Name="hrisbranchcode" ColumnName="hrisbranchcode" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="create_date" ColumnName="create_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="core_users">
+            <EntityTypeMapping TypeName="ERFCDBModel.core_users">
+              <MappingFragment StoreEntitySet="core_users">
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="userrole" ColumnName="userrole" />
+                <ScalarProperty Name="userpass" ColumnName="userpass" />
+                <ScalarProperty Name="lastname" ColumnName="lastname" />
+                <ScalarProperty Name="middlename" ColumnName="middlename" />
+                <ScalarProperty Name="firstname" ColumnName="firstname" />
+                <ScalarProperty Name="nickname" ColumnName="nickname" />
+                <ScalarProperty Name="usertype" ColumnName="usertype" />
+                <ScalarProperty Name="emplId" ColumnName="emplId" />
+                <ScalarProperty Name="emailaddress" ColumnName="emailaddress" />
+                <ScalarProperty Name="mobileno" ColumnName="mobileno" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="hashcode" ColumnName="hashcode" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="create_date" ColumnName="create_date" />
+                <ScalarProperty Name="canaccessaquila" ColumnName="canaccessaquila" />
+                <ScalarProperty Name="ismailvalid" ColumnName="ismailvalid" />
+                <ScalarProperty Name="isphonevalid" ColumnName="isphonevalid" />
+                <ScalarProperty Name="isverify" ColumnName="isverify" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="core_userswarehouse">
+            <EntityTypeMapping TypeName="ERFCDBModel.core_userswarehouse">
+              <MappingFragment StoreEntitySet="core_userswarehouse">
+                <ScalarProperty Name="brancode" ColumnName="brancode" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="sysId" ColumnName="sysId" />
+                <ScalarProperty Name="isdefault" ColumnName="isdefault" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="create_date" ColumnName="create_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="core_audit_trail">
+            <EntityTypeMapping TypeName="ERFCDBModel.core_audit_trail">
+              <MappingFragment StoreEntitySet="core_audit_trail">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="module" ColumnName="module" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="createdte" ColumnName="createdte" />
+                <ScalarProperty Name="workstation" ColumnName="workstation" />
+                <ScalarProperty Name="appname" ColumnName="appname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="core_vAdminMenu">
+            <EntityTypeMapping TypeName="ERFCDBModel.core_vAdminMenu">
+              <MappingFragment StoreEntitySet="core_vAdminMenu">
+                <ScalarProperty Name="parentId" ColumnName="parentId" />
+                <ScalarProperty Name="parentName" ColumnName="parentName" />
+                <ScalarProperty Name="parentmenuorder" ColumnName="parentmenuorder" />
+                <ScalarProperty Name="parenticon" ColumnName="parenticon" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="sysId" ColumnName="sysId" />
+                <ScalarProperty Name="menucode" ColumnName="menucode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="core_vParentMenu">
+            <EntityTypeMapping TypeName="ERFCDBModel.core_vParentMenu">
+              <MappingFragment StoreEntitySet="core_vParentMenu">
+                <ScalarProperty Name="parentId" ColumnName="parentId" />
+                <ScalarProperty Name="parentName" ColumnName="parentName" />
+                <ScalarProperty Name="parentmenuorder" ColumnName="parentmenuorder" />
+                <ScalarProperty Name="parenticon" ColumnName="parenticon" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="sysId" ColumnName="sysId" />
+                <ScalarProperty Name="menucode" ColumnName="menucode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="core_system">
+            <EntityTypeMapping TypeName="ERFCDBModel.core_system">
+              <MappingFragment StoreEntitySet="core_system">
+                <ScalarProperty Name="mobadminpincode" ColumnName="mobadminpincode" />
+                <ScalarProperty Name="pismutilizationyear" ColumnName="pismutilizationyear" />
+                <ScalarProperty Name="pismutilizationmonth" ColumnName="pismutilizationmonth" />
+                <ScalarProperty Name="debugpassword" ColumnName="debugpassword" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

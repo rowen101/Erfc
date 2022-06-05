@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5b21c91e2f4f4723a0b0d5e8a2b23fa7" Name="Diagram1">
+        <EntityTypeShape EntityType="ERFCDBModel.core_appbroadcastmsg" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERFCDBModel.core_appedi" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERFCDBModel.core_appmenu" Width="1.5" PointX="6" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERFCDBModel.core_appmenuuser" Width="1.5" PointX="3" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERFCDBModel.core_appnotification" Width="1.5" PointX="8.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERFCDBModel.core_appsettings" Width="1.5" PointX="8.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERFCDBModel.core_appsystem" Width="1.5" PointX="3.75" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERFCDBModel.core_appsystemuser" Width="1.5" PointX="3" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERFCDBModel.core_appversion" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERFCDBModel.core_attachments" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERFCDBModel.core_branchmst" Width="1.5" PointX="10.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERFCDBModel.core_users" Width="1.5" PointX="0.75" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERFCDBModel.core_userswarehouse" Width="1.5" PointX="6" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERFCDBModel.core_audit_trail" Width="1.5" PointX="8.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERFCDBModel.core_vAdminMenu" Width="1.5" PointX="10.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERFCDBModel.core_vParentMenu" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="ERFCDBModel.FK_core_appmenu_core_appsystem" ManuallyRouted="false" />
+        <AssociationConnector Association="ERFCDBModel.FK_core_appmenuuser_core_users" ManuallyRouted="false" />
+        <AssociationConnector Association="ERFCDBModel.FK_core_userswarehouse_core_appsystem" ManuallyRouted="false" />
+        <AssociationConnector Association="ERFCDBModel.FK_core_appsystemuser_core_users" ManuallyRouted="false" />
+        <AssociationConnector Association="ERFCDBModel.FK_core_userswarehouse_core_users" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ERFCDBModel.core_system" Width="1.5" PointX="0.75" PointY="13.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
